@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/txt_hundreds"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:visibility="gone"
+            tools:visibility="visible"
+            android:maxLength="1"
+            android:textSize="80sp"
+            android:text="0"
+            tools:text="0" />
+
+        <TextView
+            android:id="@+id/txt_tens"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:visibility="gone"
+            tools:visibility="visible"
+            android:maxLength="1"
+            android:textSize="80sp"
+            android:text="0"
+            tools:text="0" />
+
+        <TextView
+            android:id="@+id/txt_ones"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:visibility="gone"
+            tools:visibility="visible"
+            android:textSize="80sp"
+            android:maxLength="1"
+            android:text="0"
+            tools:text="0" />
+
+    </LinearLayout>
+
+</FrameLayout>
