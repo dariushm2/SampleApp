@@ -1,11 +1,13 @@
 package com.dariushm2.bottomsheet.tabs
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+
 import com.dariushm2.bottomsheet.navigation.navigate
 import com.dariushm2.bottomsheet.databinding.FragmentMyBetsBinding
 import com.dariushm2.bottomsheet.navigation.Deeplink
@@ -19,14 +21,18 @@ class MyBetsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentMyBetsBinding.inflate(inflater)
+        if (savedInstanceState == null) {
+            binding = FragmentMyBetsBinding.inflate(inflater)
 
-        val deeplink = Deeplink("register", DeeplinkExtras.Register.Third("my bets"))
+            val deeplink = Deeplink("register", DeeplinkExtras.Register.Third("my bets"))
 
-        binding.btnGo.setOnClickListener {
-            findNavController().navigate(deeplink)
+            Log.e("nav", "MyBets onCreateView $this")
+
+            binding.btnGo.setOnClickListener {
+                findNavController().navigate(deeplink)
+            }
+
         }
-
         return binding.root
     }
 }

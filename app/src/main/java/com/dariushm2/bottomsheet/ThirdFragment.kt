@@ -6,15 +6,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import com.dariushm2.bottomsheet.databinding.FragmentThirdBinding
 import com.dariushm2.bottomsheet.navigation.Deeplink
 import com.dariushm2.bottomsheet.navigation.DeeplinkExtras
+import com.dariushm2.bottomsheet.navigation.findNavController
 import com.dariushm2.bottomsheet.navigation.navigate
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.launch
 
 class ThirdFragment : Fragment() {
 
@@ -39,7 +41,7 @@ class ThirdFragment : Fragment() {
             val deeplink = Deeplink("first", DeeplinkExtras.Register.First("Dariush"))
 
             refresh.setOnClickListener {
-                findNavController().navigate(deeplink)
+                findNavController()?.navigate(deeplink)
 
                 //circle.reset(R.color.transparent)
 //                lifecycleScope.postDelayed(2000) {

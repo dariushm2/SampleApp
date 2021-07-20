@@ -1,9 +1,9 @@
 package com.dariushm2.bottomsheet.navigation
 
-import android.util.Log
 import androidx.navigation.NavController
 import androidx.navigation.NavDirections
-import com.dariushm2.bottomsheet.*
+import com.dariushm2.bottomsheet.FirstFragmentDirections
+import com.dariushm2.bottomsheet.ThirdFragmentDirections
 import com.dariushm2.bottomsheet.tabs.HomeFragmentDirections
 import com.dariushm2.bottomsheet.tabs.LiveFragmentDirections
 import com.dariushm2.bottomsheet.tabs.MyBetsFragmentDirections
@@ -23,7 +23,6 @@ object DestinationFactory : KoinComponent {
     private val deeplinkCreators by lazy { getKoin().getAll<DestinationCreator>() }
 
     fun findCreator(deeplink: Deeplink): DestinationCreator? {
-        Log.e("nav", deeplinkCreators.toString())
         for (deeplinkCreator in deeplinkCreators) {
             if (deeplinkCreator.canHandle(deeplink))
                 return deeplinkCreator
@@ -45,8 +44,8 @@ class FirstFragmentCreator : DestinationCreator {
     override fun destination(deeplink: Deeplink): NavDirections =
         ThirdFragmentDirections.toFirstFragment(
             deeplink.extras?.let {
-            navConfig(it)
-        } as FirstFragmentConfig
+                navConfig(it)
+            } as FirstFragmentConfig
         )
 
     override fun navConfig(extras: BaseDeeplinkExtras): NavConfig? {
@@ -89,8 +88,8 @@ class ThirdFragmentCreator : DestinationCreator {
     override fun destination(deeplink: Deeplink): NavDirections =
         ThirdFragmentDirections.toThirdFragment(
             deeplink.extras?.let {
-            navConfig(it)
-        } as ThirdFragmentConfig
+                navConfig(it)
+            } as ThirdFragmentConfig
         )
 
     override fun navConfig(extras: BaseDeeplinkExtras): NavConfig? {

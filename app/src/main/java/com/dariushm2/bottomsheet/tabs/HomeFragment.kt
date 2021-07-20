@@ -1,11 +1,11 @@
 package com.dariushm2.bottomsheet.tabs
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.fragment.findNavController
 import com.dariushm2.bottomsheet.databinding.FragmentHomeBinding
 import androidx.navigation.fragment.navArgs
 import com.dariushm2.bottomsheet.navigation.*
@@ -30,8 +30,10 @@ class HomeFragment : Fragment(), NavComponent<HomeFragmentArgs, HomeFragmentConf
 
         binding.tabName.text = "Home ${navConfig.title}"
 
+        Log.e("nav", "Home onCreateView $this")
+
         binding.btnGo.setOnClickListener {
-            findNavController().navigate(deeplink)
+            findNavController()?.navigate(deeplink)
         }
 
 

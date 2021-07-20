@@ -33,6 +33,11 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
  *
  * This sample is a workaround until the Navigation Component supports multiple back stacks.
  */
+
+private val selectedNavController = MutableLiveData<NavController>()
+
+fun findNavController() = selectedNavController.value
+
 fun BottomNavigationView.setupWithNavController(
     navGraphIds: List<Int>,
     fragmentManager: FragmentManager,
@@ -43,7 +48,7 @@ fun BottomNavigationView.setupWithNavController(
     // Map of tags
     val graphIdToTagMap = SparseArray<String>()
     // Result. Mutable live data with the selected controlled
-    val selectedNavController = MutableLiveData<NavController>()
+
 
     var firstFragmentGraphId = 0
 

@@ -1,8 +1,5 @@
 package com.dariushm2.bottomsheet
 
-import android.content.Intent
-import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -47,13 +44,6 @@ class SecondFragment : Fragment() {
             }
 
             btnRefresh.setOnClickListener {
-
-                val url = "https://thescore.app.link?account=theScore&utm_source=theScore%20Bet&utm_campaign=Stay%20up%20to%20date%20with%20theScore&utm_medium=Event%20alerts%20modal&tags=betting_integration,modal,alerts,android"
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url)).apply {
-                    addFlags(FLAG_ACTIVITY_NEW_TASK)
-
-                }
-                startActivity(intent)
 
                 //data = getSecondData()
                 //adapter.notifyDataSetChanged()

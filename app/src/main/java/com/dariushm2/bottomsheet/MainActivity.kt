@@ -1,6 +1,8 @@
 package com.dariushm2.bottomsheet
 
+import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.LiveData
 import androidx.navigation.NavController
@@ -8,6 +10,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.dariushm2.bottomsheet.databinding.ActivityMainBinding
+import com.dariushm2.bottomsheet.navigation.findNavController
 import com.dariushm2.bottomsheet.navigation.setupWithNavController
 
 
@@ -62,8 +65,10 @@ class MainActivity : AppCompatActivity() {//, NavigationBarView.OnItemSelectedLi
         }
     }
 
+    @SuppressLint("RestrictedApi")
     override fun onSupportNavigateUp(): Boolean {
         //return navController.navigateUp(appBarConfiguration)
+        findNavController()?.backStack?.toString()?.let { Log.e("nav", it) }
         return currentNavController?.value?.navigateUp() ?: false
     }
 
