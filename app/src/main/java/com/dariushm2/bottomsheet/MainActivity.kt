@@ -65,10 +65,15 @@ class MainActivity : AppCompatActivity() {//, NavigationBarView.OnItemSelectedLi
         }
     }
 
-    @SuppressLint("RestrictedApi")
+    override fun onBackPressed() {
+        if (findNavController()?.navigateUp() == false) {
+            super.onBackPressed()
+        }
+    }
+
     override fun onSupportNavigateUp(): Boolean {
         //return navController.navigateUp(appBarConfiguration)
-        findNavController()?.backStack?.toString()?.let { Log.e("nav", it) }
+        Log.e("nav", "onSupportNavigateUp")
         return currentNavController?.value?.navigateUp() ?: false
     }
 
