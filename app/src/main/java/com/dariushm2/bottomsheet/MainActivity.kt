@@ -1,24 +1,15 @@
 package com.dariushm2.bottomsheet
 
 import android.os.Bundle
-import android.util.Log
-import android.view.Menu
-import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
+import androidx.lifecycle.LiveData
 import androidx.navigation.NavController
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.dariushm2.bottomsheet.databinding.ActivityMainBinding
-import com.dariushm2.bottomsheet.navigation.Deeplink
-import com.dariushm2.bottomsheet.navigation.DeeplinkExtras
-import com.dariushm2.bottomsheet.navigation.DestinationFactory
-import com.dariushm2.bottomsheet.navigation.navigate
-import com.google.android.material.navigation.NavigationBarView
+import com.dariushm2.bottomsheet.navigation.setupWithNavController
+
 
 class MainActivity : AppCompatActivity() {//, NavigationBarView.OnItemSelectedListener {
 
@@ -26,22 +17,44 @@ class MainActivity : AppCompatActivity() {//, NavigationBarView.OnItemSelectedLi
     private lateinit var navController: NavController
     private lateinit var appBarConfiguration: AppBarConfiguration
 
+    private var currentNavController: LiveData<NavController>? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        //setSupportActionBar(binding.toolbar)
+        setSupportActionBar(binding.toolbar)
 
         //binding.bottomNavigation.setOnItemSelectedListener(this)
 
-        //val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-        navController = findNavController(R.id.nav_host_fragment)
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        navController = navHostFragment.navController
+        //navController = findNavController(R.id.nav_host_fragment)
 
-        binding.bottomNavigation.setupWithNavController(navController)
-//        appBarConfiguration = AppBarConfiguration(
-//            setOf(R.id.homeFragment, R.id.myBetsFragment, R.id.liveFragment)
-//        )
-        //binding.toolbar.setupWithNavController(navController, appBarConfiguration)
+        val controller = binding.bottomNavigation.setupWithNavController(
+            listOf(
+                R.navigation.nav_graph_home,
+                R.navigation.nav_graph_mybets,
+                R.navigation.nav_graph_live
+            ),
+            supportFragmentManager,
+            R.id.nav_host_fragment,
+            intent
+        )
+
+        // Whenever the selected controller changes, setup the action bar.
+        controller.observe(this) { navController ->
+            //setupActionBarWithNavController(navController)
+            binding.toolbar.setupWithNavController(navController, appBarConfiguration)
+        }
+        currentNavController = controller
+
+
+        appBarConfiguration = AppBarConfiguration(
+            setOf(R.id.homeFragment, R.id.homeFragment, R.id.homeFragment)
+        )
+        binding.toolbar.setupWithNavController(navController, appBarConfiguration)
 
 
         binding.fab.setOnClickListener {
@@ -50,7 +63,8 @@ class MainActivity : AppCompatActivity() {//, NavigationBarView.OnItemSelectedLi
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        return navController.navigateUp(appBarConfiguration)
+        //return navController.navigateUp(appBarConfiguration)
+        return currentNavController?.value?.navigateUp() ?: false
     }
 
 //    override fun onCreateOptionsMenu(menu: Menu): Boolean {

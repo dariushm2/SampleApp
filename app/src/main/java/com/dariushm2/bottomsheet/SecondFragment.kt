@@ -4,22 +4,14 @@ import android.content.Intent
 import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
 import android.net.Uri
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.Recycler
-import bet.thescore.android.ui.customview.SlideRightItemAnimator
+import com.dariushm2.bottomsheet.circle.ChipData
 import com.dariushm2.bottomsheet.databinding.FragmentSecondBinding
-import kotlinx.coroutines.*
-import java.lang.Error
 
-class SecondFragment private constructor(): Fragment() {
+class SecondFragment : Fragment() {
 
     private lateinit var binding: FragmentSecondBinding
 

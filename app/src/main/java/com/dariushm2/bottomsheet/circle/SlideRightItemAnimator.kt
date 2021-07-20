@@ -1,14 +1,11 @@
-package bet.thescore.android.ui.customview
+package com.dariushm2.bottomsheet.circle
 
 import android.os.Handler
-import android.util.Log
 import android.view.View
 import androidx.dynamicanimation.animation.FloatPropertyCompat
 import androidx.dynamicanimation.animation.SpringAnimation
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.SimpleItemAnimator
-import com.dariushm2.bottomsheet.NameAdapter
 
 class SlideRightItemAnimator : DefaultItemAnimator() {
 

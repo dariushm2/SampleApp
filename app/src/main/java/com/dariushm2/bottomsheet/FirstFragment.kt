@@ -10,6 +10,7 @@ import com.dariushm2.bottomsheet.databinding.FragmentFirstBinding
 import com.dariushm2.bottomsheet.navigation.FirstFragmentConfig
 import com.dariushm2.bottomsheet.navigation.NavComponent
 import androidx.navigation.fragment.navArgs
+import com.dariushm2.bottomsheet.circle.ChipData
 
 class FirstFragment : Fragment(), NavComponent<FirstFragmentArgs, FirstFragmentConfig> {
 

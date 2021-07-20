@@ -1,4 +1,4 @@
-package com.dariushm2.bottomsheet
+package com.dariushm2.bottomsheet.circle
 
 data class ChipData(
     val name: String,

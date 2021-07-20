@@ -7,12 +7,144 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.dariushm2.bottomsheet.HomeFragment"
+        android:name="com.dariushm2.bottomsheet.tabs.HomeFragment"
         android:label="Home"
         tools:layout="@layout/fragment_home" >
 
+        <argument
+            android:name="tabType"
+            app:argType="integer"
+            android:defaultValue="0"/>
 
+        <argument
+            android:name="config"
+            app:argType="com.dariushm2.bottomsheet.navigation.HomeFragmentConfig"
+            app:nullable="true"
+            android:defaultValue="@null"/>
 
     </fragment>
+
+    <fragment
+        android:id="@+id/myBetsFragment"
+        android:name="com.dariushm2.bottomsheet.tabs.MyBetsFragment"
+        android:label="My Bets"
+        tools:layout="@layout/fragment_my_bets" >
+
+        <argument
+            android:name="config"
+            app:argType="com.dariushm2.bottomsheet.navigation.MyBetsFragmentConfig"
+            app:nullable="true"
+            android:defaultValue="@null"/>
+
+    </fragment>
+    <fragment
+        android:id="@+id/liveFragment"
+        android:name="com.dariushm2.bottomsheet.tabs.LiveFragment"
+        android:label="Live"
+        tools:layout="@layout/fragment_live" >
+
+        <argument
+            android:name="config"
+            app:argType="com.dariushm2.bottomsheet.navigation.LiveFragmentConfig"
+            app:nullable="true"
+            android:defaultValue="@null"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/FirstFragment"
+        android:name="com.dariushm2.bottomsheet.FirstFragment"
+        android:label="@string/first_fragment_label"
+        tools:layout="@layout/fragment_first">
+
+        <argument
+            android:name="config"
+            app:argType="com.dariushm2.bottomsheet.navigation.FirstFragmentConfig"
+            app:nullable="true"
+            android:defaultValue="@null"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/SecondFragment"
+        android:name="com.dariushm2.bottomsheet.SecondFragment"
+        android:label="@string/second_fragment_label"
+        tools:layout="@layout/fragment_second">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/ThirdFragment"
+        android:name="com.dariushm2.bottomsheet.ThirdFragment"
+        android:label="@string/third_fragment_label"
+        tools:layout="@layout/fragment_third">
+
+    </fragment>
+
+    <action
+        android:id="@+id/toFirstFragment"
+        app:destination="@id/FirstFragment" >
+
+        <argument
+            android:name="config"
+            app:argType="com.dariushm2.bottomsheet.navigation.FirstFragmentConfig"
+            app:nullable="true" />
+
+    </action>
+
+    <action
+        android:id="@+id/toSecondFragment"
+        app:destination="@id/SecondFragment" >
+
+        <argument
+            android:name="config"
+            app:argType="com.dariushm2.bottomsheet.navigation.SecondFragmentConfig"
+            app:nullable="true" />
+
+    </action>
+
+    <action
+        android:id="@+id/toThirdFragment"
+        app:destination="@id/ThirdFragment" >
+
+        <argument
+            android:name="config"
+            app:argType="com.dariushm2.bottomsheet.navigation.ThirdFragmentConfig"
+            app:nullable="true" />
+
+    </action>
+
+    <action
+        android:id="@+id/toHomeFragment"
+        app:destination="@id/homeFragment" >
+
+        <argument
+            android:name="config"
+            app:argType="com.dariushm2.bottomsheet.navigation.HomeFragmentConfig"
+            app:nullable="true" />
+
+    </action>
+
+    <action
+        android:id="@+id/toMyBetsFragment"
+        app:destination="@id/myBetsFragment" >
+
+        <argument
+            android:name="config"
+            app:argType="com.dariushm2.bottomsheet.navigation.MyBetsFragmentConfig"
+            app:nullable="true" />
+
+    </action>
+
+    <action
+        android:id="@+id/toLiveFragment"
+        app:destination="@id/liveFragment" >
+
+        <argument
+            android:name="config"
+            app:argType="com.dariushm2.bottomsheet.navigation.LiveFragmentConfig"
+            app:nullable="true" />
+
+    </action>
 
 </navigation>

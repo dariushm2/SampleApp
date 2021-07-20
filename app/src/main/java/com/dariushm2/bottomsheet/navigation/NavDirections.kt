@@ -4,6 +4,9 @@ import android.util.Log
 import androidx.navigation.NavController
 import androidx.navigation.NavDirections
 import com.dariushm2.bottomsheet.*
+import com.dariushm2.bottomsheet.tabs.HomeFragmentDirections
+import com.dariushm2.bottomsheet.tabs.LiveFragmentDirections
+import com.dariushm2.bottomsheet.tabs.MyBetsFragmentDirections
 import org.koin.core.component.KoinComponent
 
 interface DestinationCreator {
@@ -62,10 +65,10 @@ class SecondFragmentCreator : DestinationCreator {
         deeplink.extras is DeeplinkExtras.Register.Second
 
     override fun destination(deeplink: Deeplink): NavDirections =
-        FirstFragmentDirections.actionFirstFragmentToSecondFragment(
-//            deeplink.extras?.let {
-//            navConfig(it)
-//        } as SecondFragmentConfig
+        FirstFragmentDirections.toSecondFragment(
+            deeplink.extras?.let {
+                navConfig(it)
+            } as SecondFragmentConfig
         )
 
     override fun navConfig(extras: BaseDeeplinkExtras): NavConfig? {

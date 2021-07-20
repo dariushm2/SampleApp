@@ -1,4 +1,5 @@
-import android.util.Log
+package com.dariushm2.bottomsheet.circle
+
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.Transformation

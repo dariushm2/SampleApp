@@ -1,11 +1,10 @@
-package com.dariushm2.bottomsheet
+package com.dariushm2.bottomsheet.circle
 
 import android.content.Context
 import android.graphics.*
 import android.util.AttributeSet
 import android.util.Log
 import android.view.View
-import android.view.animation.AnimationUtils
 import androidx.core.content.ContextCompat
 import androidx.dynamicanimation.animation.FloatPropertyCompat
 import androidx.dynamicanimation.animation.SpringAnimation

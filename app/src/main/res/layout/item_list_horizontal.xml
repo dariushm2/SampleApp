@@ -22,7 +22,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.dariushm2.bottomsheet.Circle
+    <com.dariushm2.bottomsheet.circle.Circle
         android:id="@+id/circle"
         android:layout_width="60dp"
         android:layout_height="60dp"
