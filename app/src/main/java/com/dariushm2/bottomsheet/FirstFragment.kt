@@ -5,14 +5,13 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import com.dariushm2.bottomsheet.databinding.FragmentFirstBinding
 import com.dariushm2.bottomsheet.navigation.FirstFragmentConfig
 import com.dariushm2.bottomsheet.navigation.NavComponent
 import androidx.navigation.fragment.navArgs
 import com.dariushm2.bottomsheet.circle.ChipData
 
-class FirstFragment : Fragment(), NavComponent<FirstFragmentArgs, FirstFragmentConfig> {
+class FirstFragment : BaseFragment(), NavComponent<FirstFragmentArgs, FirstFragmentConfig> {
 
     var leftPoint = 0
     var rightPoint = 0
@@ -33,11 +32,11 @@ class FirstFragment : Fragment(), NavComponent<FirstFragmentArgs, FirstFragmentC
         binding = FragmentFirstBinding.inflate(inflater)
 
         Log.e("nav", navConfig.title)
-        val transaction = childFragmentManager.beginTransaction()
-        transaction.replace(
-            R.id.frame,
-            SecondFragment.newInstance()
-        ).commit()
+//        val transaction = childFragmentManager.beginTransaction()
+//        transaction.replace(
+//            R.id.frame,
+//            SecondFragment.newInstance()
+//        ).commit()
 
         return binding.root
     }

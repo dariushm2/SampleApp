@@ -4,11 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import com.dariushm2.bottomsheet.circle.ChipData
 import com.dariushm2.bottomsheet.databinding.FragmentSecondBinding
+import com.dariushm2.bottomsheet.navigation.Deeplink
+import com.dariushm2.bottomsheet.navigation.DeeplinkExtras
 
-class SecondFragment : Fragment() {
+class SecondFragment : BaseFragment() {
 
     private lateinit var binding: FragmentSecondBinding
 
@@ -43,7 +44,10 @@ class SecondFragment : Fragment() {
                 //recyclerView.scrollToPosition(adapter.itemCount - 1)
             }
 
+            val deeplink = Deeplink("register", DeeplinkExtras.Register.First("First"))
+
             btnRefresh.setOnClickListener {
+                navigate(deeplink)
 
                 //data = getSecondData()
                 //adapter.notifyDataSetChanged()

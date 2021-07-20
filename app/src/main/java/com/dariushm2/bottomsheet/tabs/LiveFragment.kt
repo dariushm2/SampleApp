@@ -2,17 +2,15 @@ package com.dariushm2.bottomsheet.tabs
 
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.fragment.findNavController
+import com.dariushm2.bottomsheet.BaseFragment
 import com.dariushm2.bottomsheet.databinding.FragmentLiveBinding
-import com.dariushm2.bottomsheet.navigation.navigate
 import com.dariushm2.bottomsheet.navigation.Deeplink
 import com.dariushm2.bottomsheet.navigation.DeeplinkExtras
 
-class LiveFragment : Fragment() {
+class LiveFragment : BaseFragment() {
 
     private lateinit var binding: FragmentLiveBinding
 
@@ -27,7 +25,7 @@ class LiveFragment : Fragment() {
         Log.e("nav", "Live onCreateView $this")
 
         binding.btnGo.setOnClickListener {
-            findNavController().navigate(deeplink)
+            navigate(deeplink)
         }
 
         return binding.root
