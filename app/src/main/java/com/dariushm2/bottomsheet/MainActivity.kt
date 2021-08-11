@@ -6,11 +6,11 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.LiveData
 import androidx.navigation.NavController
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.dariushm2.bottomsheet.databinding.ActivityMainBinding
-import com.dariushm2.bottomsheet.navigation.findNavController
 import com.dariushm2.bottomsheet.navigation.setupWithNavController
 
 
@@ -66,7 +66,7 @@ class MainActivity : AppCompatActivity() {//, NavigationBarView.OnItemSelectedLi
     }
 
     override fun onBackPressed() {
-        if (findNavController()?.navigateUp() == false) {
+        if (!findNavController(R.id.nav_host_fragment).navigateUp()) {
             super.onBackPressed()
         }
     }

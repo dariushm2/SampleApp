@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.dariushm2.bottomsheet.circle.ChipData
 import com.dariushm2.bottomsheet.databinding.FragmentSecondBinding
 import com.dariushm2.bottomsheet.navigation.Deeplink
@@ -47,7 +48,8 @@ class SecondFragment : BaseFragment() {
             val deeplink = Deeplink("register", DeeplinkExtras.Register.First("First"))
 
             btnRefresh.setOnClickListener {
-                navigate(deeplink)
+                //navigate(deeplink)
+                //findNavController().popBackStack(R.id.toThirdFragment, false)
 
                 //data = getSecondData()
                 //adapter.notifyDataSetChanged()

@@ -94,6 +94,8 @@
 
     <action
         android:id="@+id/toSecondFragment"
+        app:popUpTo="@id/toThirdFragment"
+        app:popUpToInclusive="false"
         app:destination="@id/SecondFragment" >
 
         <argument

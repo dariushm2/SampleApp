@@ -8,12 +8,6 @@ import android.view.ViewGroup
 import com.dariushm2.bottomsheet.databinding.FragmentThirdBinding
 import com.dariushm2.bottomsheet.navigation.Deeplink
 import com.dariushm2.bottomsheet.navigation.DeeplinkExtras
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.asFlow
-import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.onEach
-import kotlinx.coroutines.launch
 
 class ThirdFragment : BaseFragment() {
 
@@ -54,15 +48,5 @@ class ThirdFragment : BaseFragment() {
         super.onDestroy()
         Log.e("delay", "onDestroy")
         binding = null
-    }
-
-    fun CoroutineScope.postDelayedd(initialDelay: Long, op: () -> Unit) = (0..0).asFlow().onEach {
-        delay(initialDelay)
-        op.invoke()
-    }.launchIn(this)
-
-    fun CoroutineScope.postDelayed(initialDelay: Long, op: () -> Unit) = this.launch {
-        delay(initialDelay)
-        op.invoke()
     }
 }
